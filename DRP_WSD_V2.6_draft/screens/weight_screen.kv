@@ -1,0 +1,119 @@
+<WeightScreen>:
+    name: 'weight'
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 25
+        spacing: 15
+        Card:
+            spacing: 5
+            padding: 25
+            orientation: 'vertical'
+            H3:
+                text: 'WHEEL WEIGHTS'
+                size_hint_y: None
+                halign: 'center'
+                valign: 'top'
+                bold: True
+                height: 40
+            Separator:
+                orientation: 'horizontal'
+                size_hint_x: .9
+                pos_hint: {'center_x': .5}
+            GridLayout:
+                cols: 2
+                size_hint_y: .5
+                spacing: 40, 20
+                padding: 40, 10, 40, 10
+                WSDItem:
+                    canvas.before:
+                        Color:
+                            rgba: .6, .6, .6, .5
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    id: LF_weight_wheel
+                    label: 'Left Front:'
+                    unit: 'lbs'
+                WSDItem:
+                    canvas.before:
+                        Color:
+                            rgba: .6, .6, .6, .5
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    id: RF_weight_wheel
+                    label: 'Right Front:'
+                    unit: 'lbs'
+                WSDItem:
+                    canvas.before:
+                        Color:
+                            rgba: .6, .6, .6, .5
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    id: LR_weight_wheel
+                    label: 'Left Rear:'
+                    unit: 'lbs'
+                WSDItem:
+                    canvas.before:
+                        Color:
+                            rgba: .6, .6, .6, .5
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    id: RR_weight_wheel
+                    label: 'Right Rear:'
+                    unit: 'lbs'
+        Card:
+            spacing: 5
+            padding: 25
+            orientation: 'vertical'
+            H3:
+                text: 'TOTALS'
+                size_hint_y: None
+                halign: 'center'
+                valign: 'top'
+                bold: True
+                height: 40
+            Separator:
+                orientation: 'horizontal'
+                size_hint_x: .9
+                pos_hint: {'center_x': .5}
+            GridLayout:
+                cols: 2
+                padding: 20, 5, 20, 10
+                WSDItem:
+                    id: total_weight
+                    label: 'Total Weight:'
+                    unit: 'lbs'
+                WSDItem:
+                    id: cross
+                    label: 'Cross:'
+                    unit: '%'
+                WSDItem:
+                    id: rs
+                    label: 'RS:'
+                    unit: '%'
+                WSDItem:
+                    id: front
+                    label: 'Front:'
+                    unit: '%'
+                WSDItem:
+                    id: ls
+                    label: 'LS:'
+                    unit: '%'
+                WSDItem:
+                    id: rear
+                    label: 'Rear:'
+                    unit: '%'
+                WSDItem:
+                    id: total_front
+                    label: 'Total Front:'
+                    unit: 'lbs'
+                WSDItem:
+                    id: bite
+                    label: 'Bite:'
+                    unit: 'lbs'
+        BoxLayout:
+            size_hint_y: None
+            height: 50

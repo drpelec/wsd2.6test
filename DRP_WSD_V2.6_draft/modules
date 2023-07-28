@@ -1,0 +1,4 @@
+i2c-dev i2c-bcm2708
+
+
+update setup.py with extra python file ADS1x15.py in the root dir

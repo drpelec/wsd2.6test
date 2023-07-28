@@ -1,0 +1,189 @@
+<HomeScreen>:
+    name: 'home'
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 30
+        spacing: 20
+        GridLayout:
+            spacing: 15
+            cols: 2
+            Card:
+                orientation: 'vertical'
+                spacing: 5
+                padding: 10
+                BoxLayout:
+                    padding: 60, 5, 0, 0
+                    size_hint_y: None
+                    height: 50
+                    DRPIconLabel:
+                        icon: 'arrow-top-left'
+                        size_hint_x: None
+                        width: 100
+                    H3:
+                        text: 'LEFT FRONT'
+                        font_style: 'Title'
+                        bold: True
+                        halign: 'left'
+                Separator:
+                    orientation: 'horizontal'
+                    size_hint_x: .9
+                    pos_hint: {'center_x': .5}
+                BoxLayout:
+                    orientation: 'vertical'
+                    padding: 20, 5, 20, 15
+                    WSDItem:
+                        id: LF_weight_wheel
+                        label: 'Wheel Weight:'
+                        unit: 'lbs'
+                    WSDItem:
+                        id: LF_potentiometer
+                        label: 'Shock Position:'
+                        unit: 'inches'
+                    WSDItem:
+                        id: LF_weight_bs
+                        label: 'Bump Stop Load:'
+                        unit: 'lbs'
+            Card:
+                orientation: 'vertical'
+                spacing: 5
+                padding: 10
+                BoxLayout:
+                    padding: 60, 5, 0, 0
+                    size_hint_y: None
+                    height: 50
+                    H3:
+                        text: 'RIGHT FRONT'
+                        font_style: 'Title'
+                        bold: True
+                        halign: 'center'
+                    DRPIconLabel:
+                        icon: 'arrow-top-right'
+                        size_hint_x: None
+                        width: 90
+                Separator:
+                    orientation: 'horizontal'
+                    size_hint_x: .9
+                    pos_hint: {'center_x': .5}
+                BoxLayout:
+                    orientation: 'vertical'
+                    padding: 20, 5, 20, 15
+                    WSDItem:
+                        id: RF_weight_wheel
+                        label: 'Wheel Weight:'
+                        unit: 'lbs'
+                    WSDItem:
+                        id: RF_potentiometer
+                        label: 'Shock Position:'
+                        unit: 'inches'
+                    WSDItem:
+                        id: RF_weight_bs
+                        label: 'Bump Stop Load:'
+                        unit: 'lbs'
+            Card:
+                orientation: 'vertical'
+                spacing: 5
+                padding: 10
+                BoxLayout:
+                    padding: 60, 5, 0, 0
+                    size_hint_y: None
+                    height: 50
+                    DRPIconLabel:
+                        icon: 'arrow-bottom-left'
+                        size_hint_x: None
+                        width: 100
+                    H3:
+                        text: 'LEFT REAR'
+                        font_style: 'Title'
+                        bold: True
+                        halign: 'left'
+                Separator:
+                    orientation: 'horizontal'
+                    size_hint_x: .9
+                    pos_hint: {'center_x': .5}
+                BoxLayout:
+                    orientation: 'vertical'
+                    padding: 20, 5, 20, 15
+                    WSDItem:
+                        id: LR_weight_wheel
+                        label: 'Wheel Weight:'
+                        unit: 'lbs'
+                    WSDItem:
+                        id: LR_potentiometer
+                        label: 'Shock Position:'
+                        unit: 'inches'
+                    WSDItem:
+                        id: LR_weight_bs
+                        label: 'Bump Stop Load:'
+                        unit: 'lbs'
+            Card:
+                orientation: 'vertical'
+                spacing: 5
+                padding: 10
+                BoxLayout:
+                    padding: 60, 5, 0, 0
+                    size_hint_y: None
+                    height: 50
+                    H3:
+                        text: 'RIGHT REAR'
+                        font_style: 'Title'
+                        bold: True
+                        halign: 'center'
+                    DRPIconLabel:
+                        icon: 'arrow-bottom-right'
+                        size_hint_x: None
+                        width: 90
+                Separator:
+                    orientation: 'horizontal'
+                    size_hint_x: .9
+                    pos_hint: {'center_x': .5}
+                BoxLayout:
+                    orientation: 'vertical'
+                    padding: 20, 5, 20, 15
+                    WSDItem:
+                        id: RR_weight_wheel
+                        label: 'Wheel Weight:'
+                        unit: 'lbs'
+                    WSDItem:
+                        id: RR_potentiometer
+                        label: 'Shock Position:'
+                        unit: 'inches'
+                    WSDItem:
+                        id: RR_weight_bs
+                        label: 'Bump Stop Load:'
+                        unit: 'lbs'
+        BoxLayout:
+            id: box_bottom
+            size_hint_y: None
+            height: 50
+            spacing: 20
+            padding: 220, 0, 0, 0
+            Widget:
+            DRPButton:
+                size_hint_x: None
+                width: 140
+                text: 'Wheel Weights'
+                on_release: root.on_btn_weights()
+            DRPButton:
+                size_hint_x: None
+                width: 150
+                text: 'Center Of Mass'
+                on_release: root.on_btn_mass_center()
+            DRPButton:
+                id: btn_chart
+                size_hint_x: None
+                width: 80
+                text: 'Chart'
+                on_release: root.on_btn_chart()
+            DRPButton:
+                size_hint_x: None
+                width: 135
+                text: 'Zero Weights'
+                on_long_press: root.on_btn_zero_weights()
+                on_press: root.show_long_press_toast()
+            DRPButton:
+                size_hint_x: None
+                width: 135
+                text: 'Zero Travel'
+                on_long_press: root.on_btn_zero_travel()
+                on_press: root.show_long_press_toast()
+            Widget

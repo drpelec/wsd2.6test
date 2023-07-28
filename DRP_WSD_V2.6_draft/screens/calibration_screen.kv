@@ -1,0 +1,58 @@
+#:import WSDCalibrateItem widgets.calibrate_item.WSDCalibrateItem
+
+<CalibrationScreen>:
+    name: 'calibration'
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 20
+        spacing: 15
+        H3:
+            text: 'CALIBRATION'
+            size_hint_y: None
+            height: 30
+            halign: 'center'
+        GridLayout:
+            spacing: 15
+            cols: 2
+            padding: 0, 0, 0, 10
+            WSDCalibrateItem:
+                id: LF
+                direction: 'LF'
+            WSDCalibrateItem:
+                id: RF
+                direction: 'RF'
+            WSDCalibrateItem:
+                id: LR
+                direction: 'LR'
+            WSDCalibrateItem:
+                id: RR
+                direction: 'RR'
+        BoxLayout:
+            size_hint_y: None
+            height: 50
+			spacing: 30
+			padding: 200, 0, 0, 0
+            orientation: 'horizontal'
+			H4:
+				id: CurrentTime
+				text: root.CurrentTime
+				width: 275
+				size_hint_x: None
+				halign: 'center'
+			DRPButton:
+				size_hint_x: None
+				width: 130
+				text: 'Set Time'
+				on_release: root.on_btn_set_time()
+			DRPButton:
+				size_hint_x: None
+				width: 130
+				text: 'Zero All'
+				on_release: root.on_btn_zero_all()
+
+    IconButton:
+        size_hint: None, None
+        size: 50, 50
+        pos: 850, 20
+        icon: "settings"
+        on_release: root.on_btn_settings()

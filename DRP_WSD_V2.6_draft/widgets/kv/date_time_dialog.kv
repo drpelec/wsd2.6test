@@ -1,0 +1,112 @@
+<DateTimeDialog>:
+    pos_hint: {'center_x': .5, 'center_y': .7}
+    size_hint: .8, .40
+    auto_dismiss: True
+    title: 'Set Time and Date'
+    year: txt_year.text
+    month: txt_month.text
+    date: txt_date.text
+    hour: txt_hour.text
+    minute: txt_minute.text
+    ampm: spn_ampm.text
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 20
+        spacing: 10
+        H4:
+            text: root.title
+            size_hint_y: None
+            height: 40
+            halign: 'center'
+        Separator:
+        BoxLayout:
+            orientation: 'horizontal'
+            height: 40
+            TextInput:
+                id: txt_year
+                size_hint_y: None
+                height: 40
+                font_size: 25
+                hint_text: 'Year'
+                input_type: 'tel'
+                text: root.year
+            H4:
+                text: '-'
+                height: 40
+                font_size: 25
+                size_hint_x: .1
+                halign: 'center'
+            TextInput:
+                id: txt_month
+                size_hint_y: None
+                height: 40
+                font_size: 25
+                hint_text: 'Month'
+                input_type: 'tel'
+                text: root.month
+            H4:
+                text: '-'
+                height: 40
+                font_size: 25
+                size_hint_x: .08
+                halign: 'center'
+            TextInput:
+                id: txt_date
+                size_hint_y: None
+                height: 40
+                font_size: 25
+                hint_text: 'Date'
+                input_type: 'tel'
+                text: root.date
+            Widget:
+                size_hint_x: .2
+            TextInput:
+                id: txt_hour
+                size_hint_y: None
+                height: 40
+                font_size: 25
+                hint_text: 'Hour'
+                input_type: 'tel'
+                text: root.hour
+            H4:
+                text: ':'
+                height: 40
+                font_size: 25
+                size_hint_x: .08
+                halign: 'center'
+            TextInput:
+                id: txt_minute
+                size_hint_y: None
+                height: 40
+                font_size: 25
+                hint_text: 'Minute'
+                input_type: 'tel'
+                text: root.minute
+            Widget:
+                size_hint_x: .1
+            Spinner:
+                id: spn_ampm
+                text: root.ampm
+                values: { 'AM', 'PM' }
+                size_hint_y: .7
+                size_hint_x: .4
+        H5:
+            text: "Invalid date."
+            font_size: 20
+            size_hint_y: None
+            halign: 'center'
+            height: 20
+            color: 1, 0, 0, root.has_error
+            opacity: 1 if root.has_error else 0
+        BoxLayout:
+            spacing: 20
+            size_hint: .6, None
+            height: 40
+            pos_hint: {'center_x': .5}
+            DRPButton:
+                text: 'OK'
+                on_release: root.on_ok()
+            DRPButton:
+                button_type: 'white'
+                text: 'CANCEL'
+                on_release: root.dismiss()

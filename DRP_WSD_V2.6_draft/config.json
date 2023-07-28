@@ -1,0 +1,48 @@
+{
+  "calibrate": {
+    "LF": {
+      "potentiometer": 1,
+      "weight_wheel": 1,
+      "weight_bs": 1
+    },
+    "LR": {
+      "potentiometer": 1,
+      "weight_wheel": 1,
+      "weight_bs": 1
+    },
+    "RF": {
+      "potentiometer": 1,
+      "weight_wheel": 1,
+      "weight_bs": 1
+    },
+    "RR": {
+      "potentiometer": 1,
+      "weight_wheel": 1,
+      "weight_bs": 1
+    }
+  },
+  "zero": {
+    "LF": {
+      "potentiometer": 0,
+      "weight_wheel": 0,
+      "weight_bs": 0
+    },
+    "LR": {
+      "potentiometer": 0,
+      "weight_wheel": 0,
+      "weight_bs": 0
+    },
+    "RF": {
+      "potentiometer": 0,
+      "weight_wheel": 0,
+      "weight_bs": 0
+    },
+    "RR": {
+      "potentiometer": 0,
+      "weight_wheel": 0,
+      "weight_bs": 0
+    }
+  },
+  "mode": "wifi",
+  "chart": true
+}

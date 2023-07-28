@@ -1,0 +1,102 @@
+<WSDCalibrateItem>:
+    orientation: 'vertical'
+    BoxLayout:
+        padding: 60, 0, 0, 0
+        size_hint_y: None
+        height: 45
+        DRPIconLabel:
+            id: icon
+            size_hint_x: None
+            width: 100
+        H4:
+            id: title
+            font_style: 'Title'
+            bold: True
+    Separator:
+        orientation: 'horizontal'
+        size_hint_x: .9
+        pos_hint: {'center_x': .5}
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 20, 10, 20, 10
+        spacing: 5
+        BoxLayout:
+            spacing: 5
+            H5:
+                text: 'Wheel Weight:'
+                halign: 'right'
+                size_hint_x: 2.2
+                color: .3, .3, .3, 1
+            H5:
+                id: weight_wheel
+                text: ''
+                font_size: 22
+                halign: 'right'
+            H5:
+                text: 'lbs'
+                size_hint_x: None
+                width: 40
+                color: .3, .3, .3, 1
+            DRPButton:
+                text: 'Zero'
+                size_hint_x: None
+                width: 50
+                pos_hint: {'center_y': .5}
+                on_release: root.on_btn_zero('weight_wheel')
+            DRPButton:
+                text: 'Calibrate'
+                pos_hint: {'center_y': .5}
+                on_release: root.on_btn_calibrate('weight_wheel')
+        BoxLayout:
+            spacing: 5
+            H5:
+                text: 'Bump Stop Load:'
+                halign: 'right'
+                size_hint_x: 2.2
+                color: .3, .3, .3, 1
+            H5:
+                id: weight_bs
+                font_size: 22
+                halign: 'right'
+            H5:
+                text: 'lbs'
+                size_hint_x: None
+                width: 40
+                color: .3, .3, .3, 1
+            DRPButton:
+                text: 'Zero'
+                size_hint_x: None
+                width: 50
+                pos_hint: {'center_y': .5}
+                on_release: root.on_btn_zero('weight_bs')
+            DRPButton:
+                text: 'Calibrate'
+                pos_hint: {'center_y': .5}
+                on_release: root.on_btn_calibrate('weight_bs')
+        BoxLayout:
+            spacing: 5
+            H5:
+                text: 'Shock Position:'
+                halign: 'right'
+                size_hint_x: 2.2
+                color: .3, .3, .3, 1
+            H5:
+                id: potentiometer
+                font_size: 22
+                halign: 'right'
+            H5:
+                font_style: 'Headline'
+                text: 'in'
+                size_hint_x: None
+                width: 40
+                color: [.3, .3, .3, 1]
+            DRPButton:
+                text: 'Zero'
+                size_hint_x: None
+                width: 50
+                pos_hint: {'center_y': .5}
+                on_release: root.on_btn_zero('potentiometer')
+            DRPButton:
+                text: 'Calibrate'
+                pos_hint: {'center_y': .5}
+                on_release: root.on_btn_calibrate('potentiometer')

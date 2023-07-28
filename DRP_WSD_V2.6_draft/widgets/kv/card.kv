@@ -1,0 +1,78 @@
+<BorderLessCard>:
+    canvas:
+        Color:
+            rgba: self.background_color
+
+        Rectangle:
+            pos: self.x + self.border_radius, self.y
+            size: self.width - self._diameter, self.height
+
+        Rectangle:
+            pos: self.x, self.y + self.border_radius
+            size: self.border_radius, self.height - self._diameter
+
+        Rectangle:
+            pos: self.x + self.width - self.border_radius, self.y + self.border_radius
+            size: self.border_radius, self.height - self._diameter
+
+        Ellipse:
+            pos: self.pos
+            size: self._diameter, self._diameter
+            angle_start: 180
+            angle_end: 270
+
+        Ellipse:
+            pos: self.x, self.y + self.height - self._diameter
+            size: self._diameter, self._diameter
+            angle_start: 270
+            angle_end: 360
+
+        Ellipse:
+            pos: self.x + self.width - self._diameter, self.y + self.height - self._diameter
+            size: self._diameter, self._diameter
+            angle_start: 0
+            angle_end: 90
+
+        Ellipse:
+            pos: self.x + self.width - self._diameter, self.y
+            size: self._diameter, self._diameter
+            angle_start: 90
+            angle_end: 180
+
+
+<BorderedCard>:
+    canvas:
+        Color:
+            rgba: self.background_color
+
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [self.border_radius]
+
+        Color:
+            rgba: self.outline_color
+        Line:
+            ellipse: (self.x, self.y, self._diameter, self._diameter, 180, 270, 600)
+        Line:
+            ellipse: (self.x, self.y + self.height - self._diameter, self._diameter, self._diameter, 270, 360, 600)
+        Line:
+            ellipse: (self.x + self.width - self._diameter, self.y + self.height - self._diameter, self._diameter, self._diameter, 0, 90, 600)
+        Line:
+            ellipse: (self.x + self.width - self._diameter, self.y, self._diameter, self._diameter, 90, 180, 600)
+        Line:
+            points: [self.x + self.border_radius, self.y, self.x + self.width - self.border_radius, self.y]
+        Line:
+            points: [self.x, self.y + self.border_radius, self.x, self.y + self.height - self.border_radius]
+        Line:
+            points: [self.x + self.border_radius, self.y + self.height, self.x + self.width - self.border_radius, self.y + self.height]
+        Line:
+            points: [self.x + self.width, self.y + self.border_radius, self.x + self.width, self.y + self.height - self.border_radius]
+
+
+<Card>:
+    canvas.before:
+        Rectangle:
+            size: self.size
+            pos: self.pos
+            source: "assets/images/box-shadow.png"

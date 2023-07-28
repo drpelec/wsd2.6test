@@ -1,0 +1,200 @@
+#:import DEVICES_LONG settings.DEVICES_LONG
+
+<ChartScreen>:
+    name: 'chart'
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 10
+        spacing: 10
+        BoxLayout:
+            spacing: 10
+            Card:
+                id: box
+                orientation: 'vertical'
+                spacing: 20
+                padding: 10
+                H5:
+                    text: 'Retrieving chart data...'
+                    halign: 'center'
+                    valign: 'center'
+            BoxLayout:
+                size_hint_x: None
+                width: 150
+                padding: [ 0, 10, 10, 10 ] # kivy defines padding in left, top, right, bottom order
+                spacing: 10
+                orientation: 'vertical'
+                BoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: 70
+                    H5:
+                        size_hint_y: None
+                        height: 25
+                        text: 'Chart'
+                        halign: 'center'
+                    DRPSpinner:
+                        id: dev_type
+                        size_hint_y: None
+                        height: 45
+                        text: 'Wheel Weight'
+                        values: ['Wheel Weight', 'Bump Load']
+                        on_changed: root.on_dev_type_changed()
+                BoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: 213
+                    spacing: 2
+                    width: 150
+                    H5:
+                        text: 'Wheels'
+                        height: 25
+                        size_hint_y: None
+                        halign: 'center'
+                    ToggleButton:
+                        id: wheel_lf
+                        size_hint_y: None
+                        height: 45
+                        text: 'LEFT FRONT'
+                        state: 'down'
+                        background_normal: ''
+                        background_color: root.colors['LF']
+                        background_down: ''
+                        on_state: root.on_wheel_changed()
+                    ToggleButton:
+                        id: wheel_rf
+                        size_hint_y: None
+                        height: 45
+                        text: 'RIGHT FRONT'
+                        state: 'normal'
+                        background_normal: ''
+                        background_down: ''
+                        background_color: root.colors['RF']
+                        on_state: root.on_wheel_changed()
+                    ToggleButton:
+                        id: wheel_lr
+                        size_hint_y: None
+                        height: 45
+                        text: 'LEFT REAR'
+                        state: 'normal'
+                        background_normal: ''
+                        background_down: ''
+                        background_color: root.colors['LR']
+                        on_state: root.on_wheel_changed()
+                    ToggleButton:
+                        id: wheel_rr
+                        size_hint_y: None
+                        height: 45
+                        text: 'RIGHT REAR'
+                        state: 'normal'
+                        background_normal: ''
+                        background_down: ''
+                        background_color: root.colors['RR']
+                        on_state: root.on_wheel_changed()
+                BoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: 166
+                    spacing: 2
+                    width: 150
+                    H5:
+                        text: 'Overlays'
+                        height: 25
+                        size_hint_y: None
+                        halign: 'center'
+                    BoxLayout:
+                        orientation: "horizontal"
+                        spacing: 1
+                        ToggleButton:
+                            id: comparison_a
+                            size_hint_y: None
+                            size_hint_x: 0.75
+                            height: 45
+                            text: 'DATASET A'
+                            state: 'normal'
+                            background_normal: ''
+                            background_color: root.colors['A']
+                            background_down: ''
+                            on_state: root.on_comparison_changed('A')
+                        Button:
+                            id: comparison_a_clear
+                            size_hint_y: None
+                            size_hint_x: 0.25
+                            height: 45
+                            text: 'X'
+                            background_normal: ''
+                            background_down: ''
+                            background_color: root.colors['A']
+                            on_release: root.on_comparison_delete('A')
+                    BoxLayout:
+                        orientation: "horizontal"
+                        spacing: 1
+                        ToggleButton:
+                            id: comparison_b
+                            size_hint_y: None
+                            size_hint_x: 0.75
+                            height: 45
+                            text: 'DATASET B'
+                            state: 'normal'
+                            background_normal: ''
+                            background_down: ''
+                            background_color: root.colors['B']
+                            on_state: root.on_comparison_changed('B')
+                        Button:
+                            id: comparison_b_clear
+                            size_hint_y: None
+                            size_hint_x: 0.25
+                            height: 45
+                            text: 'X'
+                            background_normal: ''
+                            background_down: ''
+                            background_color: root.colors['B']
+                            on_release: root.on_comparison_delete('B')
+                    BoxLayout:
+                        orientation: "horizontal"
+                        spacing: 1
+                        ToggleButton:
+                            id: comparison_c
+                            size_hint_y: None
+                            size_hint_x: 0.75
+                            height: 45
+                            text: 'DATASET C'
+                            state: 'normal'
+                            background_normal: ''
+                            background_down: ''
+                            background_color: root.colors['C']
+                            on_state: root.on_comparison_changed('C')
+                        Button:
+                            id: comparison_c_clear
+                            size_hint_y: None
+                            size_hint_x: 0.25
+                            height: 45
+                            text: 'X'
+                            background_normal: ''
+                            background_down: ''
+                            background_color: root.colors['C']
+                            on_release: root.on_comparison_delete('C')
+        BoxLayout:
+            spacing: 50
+            size_hint_y: None
+            height: 80
+            Widget
+            IconButton:
+                icon: "download"
+                size_hint: None, None
+                size: 50, 50
+                pos_hint: {'center_y': .5}
+                on_release: root.on_btn_download()
+            IconButton:
+                id: btn_play
+                icon: "play"
+                size_hint: None, None
+                size: 50, 50
+                pos_hint: {'center_y': .5}
+                on_release: root.on_btn_play(self)
+            IconButton:
+                icon: "delete-forever"
+                size_hint: None, None
+                size: 50, 50
+                pos_hint: {'center_y': .5}
+                on_release: root.on_btn_clear()
+            Widget

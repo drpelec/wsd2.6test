@@ -1,0 +1,127 @@
+<DRPModalView>:
+    canvas:
+        Rectangle:
+            size: self.size
+            pos: self.pos
+        Color:
+            rgba: 1, 1, 1, .5
+        Rectangle:
+            size: self.size[0] + 10, self.size[1] + 10
+            pos: self.pos[0] - 5, self.pos[1] - 5
+            source: "assets/images/box-shadow.png"
+    background: "assets/images/transparent.png"
+
+
+<PasswordDialog>:
+    pos_hint: {'center_x': .5, 'center_y': .7}
+    size_hint: .4, .35
+    auto_dismiss: True
+    title: 'Input Password'
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 20
+        spacing: 10
+        H4:
+            text: root.title
+            size_hint_y: None
+            height: 40
+            halign: 'center'
+        Separator:
+        BoxLayout:
+            orientation: 'vertical'
+            TextInput:
+                id: txt_pwd
+                password: True
+                size_hint_y: None
+                height: 40
+                font_size: 25
+                hint_text: 'Input password here'
+                on_text_validate: root.on_ok()
+            H5:
+                text: "Invalid Password"
+                font_size: 20
+                size_hint_y: None
+                halign: 'center'
+                height: 20
+                color: 1, 0, 0, 1
+                opacity: 1 if root.is_error else 0
+        BoxLayout:
+            spacing: 20
+            size_hint: .6, None
+            height: 40
+            pos_hint: {'center_x': .5}
+            DRPButton:
+                text: 'OK'
+                on_release: root.on_ok()
+            DRPButton:
+                button_type: 'white'
+                text: 'CANCEL'
+                on_release: root.dismiss()
+
+<YesNoDialog>:
+    auto_dismiss: True
+    pos_hint: {'center_x': .5, 'center_y': .5}
+    size_hint: .4, .3
+    title: 'Confirm'
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 30
+        H4:
+            text: root.message
+            halign: 'center'
+        BoxLayout:
+            size_hint: .6, None
+            height: 40
+            pos_hint: {'center_x': .5}
+            spacing: 20
+            DRPButton:
+                text: 'YES'
+                on_release: root.on_yes()
+            DRPButton:
+                button_type: 'white'
+                text: 'CANCEL'
+                on_release: root.dismiss()
+
+
+<InputDialog>:
+    auto_dismiss: True
+    pos_hint: {'center_x': .5, 'center_y': .7}
+    size_hint: .55, .35
+    title: 'Input Value'
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 20
+        spacing: 10
+        H4:
+            text: root.title
+            size_hint_y: None
+            height: 40
+            halign: 'center'
+        Separator:
+        BoxLayout:
+            orientation: 'vertical'
+            spacing: 20
+            TextInput:
+                id: input
+                font_size: 25
+                height: 40
+                text: root.text
+                hint_text: root.hint_text
+                halign: 'center'
+                input_filter: root.input_filter
+                size_hint_x: .6
+                pos_hint: {'center_x': .5}
+            BoxLayout:
+                size_hint: .6, None
+                pos_hint: {'center_x': .5}
+                height: 45
+                spacing: 20
+                DRPButton:
+                    id: btn
+                    text: 'OK'
+                    disabled: True
+                    on_release: root.on_yes()
+                DRPButton:
+                    text: 'CANCEL'
+                    button_type: 'white'
+                    on_release: root.dismiss()

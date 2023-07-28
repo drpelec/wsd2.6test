@@ -1,0 +1,26 @@
+# -*- coding: iso8859-15 -*-
+
+<ErrorScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 10
+        size_hint_y: None
+        padding: 50
+        height: 700
+        BoxLayout:
+            padding: 10
+            ScrollableLabel:
+                id: error_msg
+                color: 0, 0, 0, 1
+                font_size: 30
+                animation_offset: .1
+        BoxLayout:
+            size_hint_y: None
+            height: 45
+            orientation: 'vertical'
+            DRPButton:
+                text: 'back'
+                size_hint_x: None
+                width: 100
+                pos_hint: {'center_x': .5}
+                on_release: root.on_btn_back()

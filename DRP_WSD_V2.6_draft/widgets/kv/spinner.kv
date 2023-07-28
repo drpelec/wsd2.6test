@@ -1,0 +1,21 @@
+#:import ICONS widgets.icons.ICONS
+
+<DRPSpinnerOption>:
+    size_hint_y: None
+    height: 45
+
+<DRPSpinner>:
+    padding: 10, 0
+    size_hint_y: None
+    height: 45
+    background_normal: 'assets/images/buttons/blue_button.png'
+    background_down: 'assets/images/buttons/blue_button_pressed.png'
+    Label:
+        size_hint: None, None
+        size: root.size
+        halign: 'right'
+        valign: 'middle'
+        font_size: root.font_size
+        font_name: "Icon"
+        text: u"{}".format(ICONS['chevron-right'])
+        color: 1, 1, 1, 1

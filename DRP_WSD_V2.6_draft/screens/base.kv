@@ -1,0 +1,22 @@
+<BaseScreen>:
+    canvas:
+        Color:
+            rgba: 1, 1, 1, 1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    ImageButton:
+        source: "assets/images/drp_logo.png"
+        on_long_press: root.on_logo_long_pressed()
+        size_hint: None, None
+        size: 200, 66
+        pos: 30, 20
+    IconButton:
+        size_hint: None, None
+        size: 50, 50
+        pos: 940, 20
+        font_size: 50
+        icon: "keyboard-return"
+        on_release: root.on_btn_back()
+        opacity: 1 if root.show_back_button else 0
+        disabled: False if root.show_back_button else True

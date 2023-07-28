@@ -1,0 +1,90 @@
+<CenterOfMassScreen>:
+    name: 'center_of_mass_screen'
+    BoxLayout:
+        padding: 30, 20, 120, 30
+        spacing: 40
+        BoxLayout:
+            size_hint_x: None
+            width: 300
+            padding: 0, 0, 0, 100
+            Card:
+                padding: 10, 40, 10, 40
+                orientation: 'vertical'
+                WSDItem:
+                    id: total
+                    label: 'Total:'
+                    label_width: 1.2
+                    unit: 'lbs'
+                WSDItem:
+                    id: left
+                    label: 'Left:'
+                    label_width: 1.2
+                    unit: '%'
+                WSDItem:
+                    id: right
+                    label: 'Right:'
+                    label_width: 1.2
+                    unit: '%'
+                WSDItem:
+                    id: front
+                    label: 'Front:'
+                    label_width: 1.2
+                    unit: '%'
+                WSDItem:
+                    id: rear
+                    label: 'Rear:'
+                    label_width: 1.2
+                    unit: '%'
+                WSDItem:
+                    id: cross
+                    label: 'Cross:'
+                    label_width: 1.2
+                    unit: '%'
+                WSDItem:
+                    id: bite
+                    label: 'Bite:'
+                    label_width: 1.2
+                    unit: 'lbs'
+        Card:
+            orientation: 'vertical'
+            padding: 20, 20, 30, 20
+            BoxLayout:
+                orientation: 'vertical'
+                padding: 20
+                BoxLayout:
+                    BoxLayout:
+                        size_hint_x: None
+                        width: 30
+                    RelativeLayout:
+                        id: box
+                        canvas.after:
+                            Color:
+                                rgba: 0, 0, 0, 1
+                            Line:
+                                width: 1
+                                rectangle: self.pos[0], self.pos[1], self.width, self.height
+                            Line:
+                                width: 1
+                                points: [self.pos[0] + self.width / 2, self.pos[1], self.pos[0] + self.width / 2, self.pos[1] + self.height]
+                            Line:
+                                width: 1
+                                points: [self.pos[0], self.pos[1] + self.height / 2, self.pos[0] + self.width, self.pos[1] + self.height / 2]
+                        BoxLayout:
+                            id: dot
+                            opacity: 0
+                            size_hint: None, None
+                            size: 100, 60
+                            orientation: 'vertical'
+                            Image:
+                                source: 'assets/images/dot.png'
+                                size_hint: None, None
+                                size: 30, 30
+                                pos_hint: {'center_x': .5}
+                            Label:
+                                id: lb_dot
+                                color: .9, .05, .05, 1
+                                font_size: 20
+
+                BoxLayout:
+                    size_hint_y: None
+                    height: 30

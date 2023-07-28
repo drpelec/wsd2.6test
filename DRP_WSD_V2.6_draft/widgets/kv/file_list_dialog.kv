@@ -1,0 +1,34 @@
+<FileListDialog>:
+    pos_hint: {'center_x': .5, 'center_y': .5}
+    size_hint: .8, .70
+    auto_dismiss: True
+    title: 'Choose a saved data set'
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 20
+        spacing: 10
+        H4:
+            text: root.title
+            size_hint_y: None
+            height: 40
+            halign: 'center'
+        Separator:
+		ScrollView:
+			do_scroll_x: False
+			do_scroll_y: True
+
+			BoxLayout:
+				id: file_list
+				orientation: 'vertical'
+				spacing: 2
+				size_hint_y: None
+
+        BoxLayout:
+            spacing: 20
+            size_hint: .6, None
+            height: 40
+            pos_hint: {'center_x': .5}
+            DRPButton:
+                button_type: 'white'
+                text: 'CANCEL'
+                on_release: root.dismiss()

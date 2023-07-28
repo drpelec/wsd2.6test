@@ -1,0 +1,51 @@
+# -*- coding: iso8859-15 -*-
+
+#:import style assets.styles.defaultstyle
+
+
+# =============================================================================
+# Labels
+# =============================================================================
+<ColoredLabel>:
+    color: style.COLOR_1
+    disabled_color: style.DISABLED_COLOR
+    text_size: self.size
+    markup: True
+    valign: 'middle'
+
+<H1>:
+    font_size: style.H1_FONT_SIZE
+    halign: 'center'
+
+<H2>
+    font_size: style.H2_FONT_SIZE
+    halign: 'center'
+
+<H3>
+    font_size: style.H3_FONT_SIZE
+    halign: 'center'
+
+<H4>
+    font_size: style.H4_FONT_SIZE
+
+
+<H5>
+    font_size: style.H5_FONT_SIZE
+
+<H6>
+    font_size: style.H6_FONT_SIZE
+    bold: True
+
+<P>
+    font_size: style.P_FONT_SIZE
+    halign: 'left'
+    valign: 'middle'
+
+<ScrollableLabel>:
+    Label:
+        size_hint_y: None
+        height: self.texture_size[1]
+        text_size: self.width, None
+        text: root.text
+        markup: True
+        color: root.color

@@ -1,0 +1,56 @@
+<SettingsScreen>:
+    name: 'settings'
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 30
+        spacing: 30
+        Card:
+            spacing: 10
+            padding: 25
+            orientation: 'vertical'
+            H3:
+                text: 'Settings'
+                size_hint_y: None
+                halign: 'center'
+                height: 50
+            Separator:
+                orientation: 'horizontal'
+                size_hint_x: .9
+                pos_hint: {'center_x': .5}
+
+            BoxLayout:
+                spacing: 50
+                size_hint: 0.5, None
+                height: 60
+                pos_hint: {'center_x': .5}
+                LabeledOption:
+                    id: chk_wireless
+                    text: 'Wireless'
+                    group: 'connection_type'
+                    font_size: 25
+                    allow_no_selection: False
+                    on_pressed: root.on_checkbox_pressed(self)
+                LabeledOption:
+                    id: chk_wired
+                    text: 'Wired'
+                    group: 'connection_type'
+                    font_size: 25
+                    allow_no_selection: False
+                    on_pressed: root.on_checkbox_pressed(self)
+            BoxLayout:
+                spacing: 10
+                size_hint: 0.5, None
+                height: 100
+                padding: 30
+                pos_hint: {'center_x': .5}
+                CheckBox:
+                    id: chk_chart
+                    size_hint_x: None
+                    width: 50
+                    on_active: root.on_chk_chart()
+                H4:
+                    text: "Chart"
+            BoxLayout
+        BoxLayout:
+            size_hint_y: None
+            height: 50
